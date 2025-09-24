@@ -14,14 +14,20 @@
 
     body {
       font-family: "Segoe UI", sans-serif;
-      background-color: #0d0d0d;
       color: #f5f5f5;
+      background: #000;
+      overflow-x: hidden;
       scroll-behavior: smooth;
     }
 
-    a {
-      text-decoration: none;
-      color: inherit;
+    a { text-decoration: none; color: inherit; }
+
+    /* ===== Galáxia Fundo ===== */
+    canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: -1;
     }
 
     /* ===== Header ===== */
@@ -31,7 +37,7 @@
       left: 0;
       width: 100%;
       padding: 15px 40px;
-      background: rgba(0, 0, 0, 0.8);
+      background: rgba(0, 0, 0, 0.7);
       backdrop-filter: blur(5px);
       display: flex;
       justify-content: space-between;
@@ -40,7 +46,7 @@
     }
 
     header h1 {
-      color: #d4af37; /* dourado */
+      color: #8a2be2; /* roxo/galáxia */
       font-size: 1.5rem;
     }
 
@@ -51,7 +57,7 @@
     }
 
     nav a:hover {
-      color: #d4af37;
+      color: #ff4d6d; /* vinho */
     }
 
     /* ===== Hero ===== */
@@ -67,14 +73,14 @@
 
     .hero h2 {
       font-size: 2.5rem;
-      color: #d4af37;
       margin-bottom: 15px;
+      color: #1e90ff; /* azul marinho vivo */
       animation: fadeIn 2s ease-in-out;
     }
 
     .typing {
       font-size: 1.2rem;
-      border-right: 2px solid #d4af37;
+      border-right: 2px solid #ff4d6d;
       white-space: nowrap;
       overflow: hidden;
       width: 0;
@@ -83,7 +89,7 @@
 
     @keyframes typing {
       from { width: 0 }
-      to { width: 26ch }
+      to { width: 32ch }
     }
 
     @keyframes blink {
@@ -104,29 +110,31 @@
     section h2 {
       font-size: 2rem;
       margin-bottom: 20px;
-      color: #d4af37;
+      color: #ff4d6d;
     }
 
     .card {
-      background: #1a1a1a;
+      background: rgba(20,20,40,0.8);
       padding: 25px;
       border-radius: 12px;
       margin: 15px;
       max-width: 500px;
-      box-shadow: 0px 0px 15px rgba(212, 175, 55, 0.3);
-      transition: transform 0.3s;
+      box-shadow: 0px 0px 20px rgba(138, 43, 226, 0.4);
+      transition: transform 0.3s, opacity 0.5s;
+      opacity: 0;
     }
 
-    .card:hover {
-      transform: translateY(-8px);
+    .card.show {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     /* ===== Botão ===== */
     .btn {
       display: inline-block;
       padding: 12px 25px;
-      background: #d4af37;
-      color: #000;
+      background: #8a2be2;
+      color: #fff;
       border-radius: 30px;
       font-weight: bold;
       margin-top: 20px;
@@ -134,7 +142,7 @@
     }
 
     .btn:hover {
-      background: #b89625;
+      background: #ff4d6d;
       transform: scale(1.05);
     }
 
@@ -146,21 +154,12 @@
       color: #888;
       font-size: 0.9rem;
     }
-
-    /* ===== Animação fade ===== */
-    .fade-in {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: all 1s;
-    }
-
-    .fade-in.show {
-      opacity: 1;
-      transform: translateY(0);
-    }
   </style>
 </head>
 <body>
+  <!-- Canvas para fundo galáxia -->
+  <canvas id="galaxy"></canvas>
+
   <!-- ===== Header ===== -->
   <header>
     <h1>Byanca.dev</h1>
@@ -174,42 +173,42 @@
 
   <!-- ===== Hero ===== -->
   <section class="hero">
-    <h2>Olá, eu sou Byanca 👋</h2>
-    <p class="typing">Programadora Python | Automação | Projetos Reais</p>
+    <h2>Olá, eu sou Byanca 👩‍💻</h2>
+    <p class="typing">Programadora Python | Automação | Projetos Criativos</p>
   </section>
 
   <!-- ===== Sobre ===== -->
   <section id="sobre">
     <h2>Sobre Mim</h2>
-    <div class="card fade-in">
+    <div class="card">
       <p>Sou Byanca, programadora Python recém-formada.  
-      Aprendi a desenvolver scripts, automações e a criar soluções inteligentes com Python.  
-      Estou em busca de oportunidades para aplicar minhas habilidades em projetos reais.</p>
+      Aprendi a criar scripts, automações e soluções inteligentes.  
+      Estou pronta para aplicar minhas habilidades em projetos reais e criativos.</p>
     </div>
   </section>
 
   <!-- ===== Serviços ===== -->
   <section id="servicos">
     <h2>Serviços</h2>
-    <div class="card fade-in">✔ Automação de Tarefas</div>
-    <div class="card fade-in">✔ Análise e Manipulação de Dados</div>
-    <div class="card fade-in">✔ Desenvolvimento de Scripts e Bots</div>
+    <div class="card">✔ Automação de Tarefas</div>
+    <div class="card">✔ Análise e Manipulação de Dados</div>
+    <div class="card">✔ Desenvolvimento de Scripts e Bots</div>
   </section>
 
   <!-- ===== Portfólio ===== -->
   <section id="portfolio">
     <h2>Portfólio</h2>
-    <div class="card fade-in">📂 Projeto 1 – <a href="#">Ver no GitHub</a></div>
-    <div class="card fade-in">📂 Projeto 2 – <a href="#">Ver no GitHub</a></div>
+    <div class="card">📂 Projeto 1 – <a href="#">Ver no GitHub</a></div>
+    <div class="card">📂 Projeto 2 – <a href="#">Ver no GitHub</a></div>
   </section>
 
   <!-- ===== Contato ===== -->
   <section id="contato">
     <h2>Contato</h2>
-    <div class="card fade-in">
-      <p>📧 Email: <a href="mailto:seuemail@email.com">seuemail@email.com</a></p>
+    <div class="card">
+      <p>📧 Email: <a href="mailto:byanca@email.com">byanca@email.com</a></p>
       <p>📱 WhatsApp: <a href="https://wa.me/5500000000000" target="_blank">Fale comigo</a></p>
-      <a class="btn" href="mailto:seuemail@email.com">Entrar em Contato</a>
+      <a class="btn" href="mailto:byanca@email.com">Entrar em Contato</a>
     </div>
   </section>
 
@@ -218,15 +217,62 @@
     <p>© 2025 - Desenvolvido por Byanca | Todos os direitos reservados</p>
   </footer>
 
-  <!-- ===== JS ===== -->
+  <!-- ===== JavaScript ===== -->
   <script>
-    // Animação de aparecer ao rolar
-    const fadeEls = document.querySelectorAll(".fade-in");
+    // Galáxia animada
+    const canvas = document.getElementById("galaxy");
+    const ctx = canvas.getContext("2d");
+    let stars = [];
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+
+    window.addEventListener("resize", resizeCanvas);
+    resizeCanvas();
+
+    function createStars() {
+      stars = [];
+      for (let i = 0; i < 150; i++) {
+        stars.push({
+          x: Math.random() * canvas.width,
+          y: Math.random() * canvas.height,
+          radius: Math.random() * 2,
+          dx: (Math.random() - 0.5) * 0.5,
+          dy: (Math.random() - 0.5) * 0.5,
+          color: ["#1e90ff", "#8a2be2", "#ff4d6d"][Math.floor(Math.random() * 3)]
+        });
+      }
+    }
+
+    function drawStars() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      stars.forEach(star => {
+        ctx.beginPath();
+        ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
+        ctx.fillStyle = star.color;
+        ctx.fill();
+
+        star.x += star.dx;
+        star.y += star.dy;
+
+        if (star.x < 0 || star.x > canvas.width) star.dx *= -1;
+        if (star.y < 0 || star.y > canvas.height) star.dy *= -1;
+      });
+      requestAnimationFrame(drawStars);
+    }
+
+    createStars();
+    drawStars();
+
+    // Fade-in dos cards
+    const cards = document.querySelectorAll(".card");
     window.addEventListener("scroll", () => {
-      fadeEls.forEach(el => {
-        const rect = el.getBoundingClientRect().top;
+      cards.forEach(card => {
+        const rect = card.getBoundingClientRect().top;
         if (rect < window.innerHeight - 50) {
-          el.classList.add("show");
+          card.classList.add("show");
         }
       });
     });
