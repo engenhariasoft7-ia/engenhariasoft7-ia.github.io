@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Byanca | Programadora Python</title>
+  <style>
+    /* ===== Reset ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Segoe UI", sans-serif;
+      background-color: #0d0d0d;
+      color: #f5f5f5;
+      scroll-behavior: smooth;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* ===== Header ===== */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 15px 40px;
+      background: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(5px);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    header h1 {
+      color: #d4af37; /* dourado */
+      font-size: 1.5rem;
+    }
+
+    nav a {
+      margin: 0 15px;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #d4af37;
+    }
+
+    /* ===== Hero ===== */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 0 20px;
+    }
+
+    .hero h2 {
+      font-size: 2.5rem;
+      color: #d4af37;
+      margin-bottom: 15px;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    .typing {
+      font-size: 1.2rem;
+      border-right: 2px solid #d4af37;
+      white-space: nowrap;
+      overflow: hidden;
+      width: 0;
+      animation: typing 4s steps(30) forwards, blink 0.7s infinite;
+    }
+
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 26ch }
+    }
+
+    @keyframes blink {
+      50% { border-color: transparent; }
+    }
+
+    /* ===== Sections ===== */
+    section {
+      min-height: 100vh;
+      padding: 100px 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    section h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: #d4af37;
+    }
+
+    .card {
+      background: #1a1a1a;
+      padding: 25px;
+      border-radius: 12px;
+      margin: 15px;
+      max-width: 500px;
+      box-shadow: 0px 0px 15px rgba(212, 175, 55, 0.3);
+      transition: transform 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+    }
+
+    /* ===== Botão ===== */
+    .btn {
+      display: inline-block;
+      padding: 12px 25px;
+      background: #d4af37;
+      color: #000;
+      border-radius: 30px;
+      font-weight: bold;
+      margin-top: 20px;
+      transition: background 0.3s, transform 0.3s;
+    }
+
+    .btn:hover {
+      background: #b89625;
+      transform: scale(1.05);
+    }
+
+    /* ===== Footer ===== */
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #000;
+      color: #888;
+      font-size: 0.9rem;
+    }
+
+    /* ===== Animação fade ===== */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 1s;
+    }
+
+    .fade-in.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+  <!-- ===== Header ===== -->
+  <header>
+    <h1>Byanca.dev</h1>
+    <nav>
+      <a href="#sobre">Sobre</a>
+      <a href="#servicos">Serviços</a>
+      <a href="#portfolio">Portfólio</a>
+      <a href="#contato">Contato</a>
+    </nav>
+  </header>
+
+  <!-- ===== Hero ===== -->
+  <section class="hero">
+    <h2>Olá, eu sou Byanca 👋</h2>
+    <p class="typing">Programadora Python | Automação | Projetos Reais</p>
+  </section>
+
+  <!-- ===== Sobre ===== -->
+  <section id="sobre">
+    <h2>Sobre Mim</h2>
+    <div class="card fade-in">
+      <p>Sou Byanca, programadora Python recém-formada.  
+      Aprendi a desenvolver scripts, automações e a criar soluções inteligentes com Python.  
+      Estou em busca de oportunidades para aplicar minhas habilidades em projetos reais.</p>
+    </div>
+  </section>
+
+  <!-- ===== Serviços ===== -->
+  <section id="servicos">
+    <h2>Serviços</h2>
+    <div class="card fade-in">✔ Automação de Tarefas</div>
+    <div class="card fade-in">✔ Análise e Manipulação de Dados</div>
+    <div class="card fade-in">✔ Desenvolvimento de Scripts e Bots</div>
+  </section>
+
+  <!-- ===== Portfólio ===== -->
+  <section id="portfolio">
+    <h2>Portfólio</h2>
+    <div class="card fade-in">📂 Projeto 1 – <a href="#">Ver no GitHub</a></div>
+    <div class="card fade-in">📂 Projeto 2 – <a href="#">Ver no GitHub</a></div>
+  </section>
+
+  <!-- ===== Contato ===== -->
+  <section id="contato">
+    <h2>Contato</h2>
+    <div class="card fade-in">
+      <p>📧 Email: <a href="mailto:seuemail@email.com">seuemail@email.com</a></p>
+      <p>📱 WhatsApp: <a href="https://wa.me/5500000000000" target="_blank">Fale comigo</a></p>
+      <a class="btn" href="mailto:seuemail@email.com">Entrar em Contato</a>
+    </div>
+  </section>
+
+  <!-- ===== Footer ===== -->
+  <footer>
+    <p>© 2025 - Desenvolvido por Byanca | Todos os direitos reservados</p>
+  </footer>
+
+  <!-- ===== JS ===== -->
+  <script>
+    // Animação de aparecer ao rolar
+    const fadeEls = document.querySelectorAll(".fade-in");
+    window.addEventListener("scroll", () => {
+      fadeEls.forEach(el => {
+        const rect = el.getBoundingClientRect().top;
+        if (rect < window.innerHeight - 50) {
+          el.classList.add("show");
+        }
+      });
+    });
+  </script>
+</body>
+</html>
